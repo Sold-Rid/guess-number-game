@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لعبة خمن الرقم</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شعار عائم يظهر 15 ثانية -->
+  <div id="floatingLogo">
+    <img src="Logo.png" alt="شعار Hamza">
+  </div>
+
+  <!-- إدخال اسم اللاعب -->
+  <div id="playerNameContainer">
+    <label for="playerName">اسمك:</label>
+    <input type="text" id="playerName" placeholder="أدخل اسمك">
+    <button onclick="savePlayerName()">ابدأ</button>
+  </div>
+
+  <!-- رسالة ترحيب -->
+  <h2 id="welcomeMessage" style="display: none;"></h2>
+
+  <!-- واجهة اللعبة -->
+  <div id="gameContainer" style="display: none;">
+    <h1>🎯 خمن الرقم</h1>
+
+    <label for="difficulty">اختر مستوى الصعوبة:</label>
+    <select id="difficulty" onchange="setDifficulty()">
+      <option value="50">سهل</option>
+      <option value="100" selected>متوسط</option>
+      <option value="500">صعب</option>
+    </select>
+
+    <div id="emojiDisplay">😁</div>
+
+    <input type="number" id="guess" placeholder="أدخل رقمك">
+    <button onclick="checkGuess()">تحقق</button>
+    <button onclick="restartGame()">🔄 إعادة اللعب</button>
+    <button id="hintBtn" onclick="showHint()" style="display: none;">💡 تلميح</button>
+
+    <p id="message"></p>
+    <p id="attempts">عدد المحاولات: 0</p>
+    <p id="timer">⏱️ الوقت: 0 ثانية</p>
+    <p id="hint"></p>
+  </div>
+
+  <!-- توقيع المؤسس -->
+  <footer id="creator">
+    <img src="Logo.png" alt="شعار Hamza" id="logo">
+    Hamza Ali Bellouti – المؤسس
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<select id="difficulty" onchange="setDifficulty()">
+  <option value="50">سهل 👌</option>
+  <option value="100" selected>متوسط 😁</option>
+  <option value="500">صعب 🤨</option>
+</select>
+
+<p id="score">النقاط: 0</p>
+<p id="highScore">🏆 أعلى نتيجة: 0</p>
+
+<div id="toast"></div>
